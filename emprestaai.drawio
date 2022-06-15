@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-15T19:53:13.904Z" agent="5.0 (X11)" etag="QXdmN9ci00xswivXgQoM" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-15T19:55:17.942Z" agent="5.0 (X11)" etag="9m1BHtHYS0krvgNkuW7F" version="20.0.1" type="github">
   <diagram id="eafMVpw3hgBMt-Y1xtIc" name="Page-1">
     <mxGraphModel dx="1382" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="DQaVrgRvme_ONegq782_-1" value="Contratante" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="90" y="309" width="229.42" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-2" value="+ CPF : String&#xa;+ Tipo: int &#xa;+ Avaliacao: Objeto&#xa;+ NumeroDeEmprestimos: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
+        <mxCell id="DQaVrgRvme_ONegq782_-2" value="+ Nome: String&#xa;+ CPF : String&#xa;+ Tipo: int &#xa;+ Avaliacao: Objeto&#xa;+ NumeroDeEmprestimos: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
           <mxGeometry y="26" width="229.42" height="84" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
@@ -25,7 +25,7 @@
         <mxCell id="DQaVrgRvme_ONegq782_-7" value="+ Tipo : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
           <mxGeometry y="52" width="201.92" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-8" value="+ Ferramentas: []string&#xa;+ Valores: int &#xa;+ Disponivel: Datetime&#xa;+ ProximoHorario&#xa;+ Avaliacao : Objeto&#xa;+ NumeroDeEmprestimos: int&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
+        <mxCell id="DQaVrgRvme_ONegq782_-8" value="+ Ferramentas: []string&#xa;+ Valores: int &#xa;+ Disponivel: Datetime&#xa;+ ProximoHorario&#xa;+ Avaliacao : Objeto&#xa;+ NumeroDeEmprestimos: int&#xa;+ Nome:String&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
           <mxGeometry y="78" width="201.92" height="132" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.469;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="DQaVrgRvme_ONegq782_-10" target="DQaVrgRvme_ONegq782_-1">
