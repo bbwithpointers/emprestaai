@@ -9,14 +9,14 @@ import (
 type SignIn struct {
 }
 
-func NewSignIng() *SignIn {
+func NovoCadastro() *SignIn {
 	return &SignIn{}
 }
 
 func (s SignIn) Register(e *echo.Echo) {
-	e.GET("/", Registro)
+	e.GET("/cadastro", Cadastro)
 }
 
-func Registro(c echo.Context) error {
+func Cadastro(c echo.Context) error {
 	return c.String(http.StatusOK, "Hello, world\n")
 }

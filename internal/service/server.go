@@ -16,7 +16,7 @@ func NewApp() *echo.Echo {
 	app.Use(middleware.RemoveTrailingSlash())
 	app.Use(middleware.CORS())
 
-	api.NewSignIng().Register(app)
+	api.NovoCadastro().Register(app)
 	return app
 
 }
@@ -28,10 +28,9 @@ func NewHealthApp() *echo.Echo {
 }
 
 func Start(e *echo.Echo, host string) {
-
+	e.HideBanner = true
 	err := e.Start(host)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("erro ao inicializar o servidor: ", err)
 	}
-	log.Info("Server start at port %s", host)
 }
