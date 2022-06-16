@@ -1,25 +1,37 @@
 package service
 
 import (
-	"net/http"
-
+	"github.com/brunogbarros/emprestaai.git/internal/api"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 )
 
-func StartApp() {
+func NewApp() *echo.Echo {
 
-	e := echo.New()
-	s := http.Server{
-		Addr:    ":8080",
-		Handler: e,
+	app := echo.New()
+
+	app.Use(middleware.Logger())
+	app.Use(middleware.Recover())
+	app.Use(middleware.RemoveTrailingSlash())
+	app.Use(middleware.CORS())
+
+	api.NewSignIng().Register(app)
+	return app
+
+}
+func NewHealthApp() *echo.Echo {
+	app := echo.New()
+
+	api.NewHealthcheck().Register(app)
+	return app
+}
+
+func Start(e *echo.Echo, host string) {
+
+	err := e.Start(host)
+	if err != nil {
+		log.Fatal(err)
 	}
-
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
-
-	if err := s.ListenAndServe(); err != http.ErrServerClosed {
-		log.Info(err)
-	}
+	log.Info("Server start at port %s", host)
 }
