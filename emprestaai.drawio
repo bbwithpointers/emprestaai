@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-15T19:56:57.544Z" agent="5.0 (X11)" etag="5qV8MH9K-6ENhoZxUnpc" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-16T04:58:20.419Z" agent="5.0 (X11)" etag="V1RQjFUkcm5ORmM6oGiY" version="20.0.1" type="github">
   <diagram id="eafMVpw3hgBMt-Y1xtIc" name="Page-1">
     <mxGraphModel dx="1382" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="DQaVrgRvme_ONegq782_-1" value="Contratante" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="90" y="309" width="229.42" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-2" value="+ Nome: String&#xa;+ CPF : String&#xa;+ Tipo: int &#xa;+ Avaliacao: Objeto&#xa;+ NumeroDeEmprestimos: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
+        <mxCell id="DQaVrgRvme_ONegq782_-2" value="+ Nome: String&#xa;+ CPF : String&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
           <mxGeometry y="26" width="229.42" height="84" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-1">
@@ -17,16 +17,13 @@
           <mxGeometry y="140" width="229.42" height="70" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-5" value="Trabalhador" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="350" y="300" width="201.92" height="210" as="geometry" />
+          <mxGeometry x="350" y="300" width="260" height="192" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-6" value="+ CNPJ : String&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
-          <mxGeometry y="26" width="201.92" height="26" as="geometry" />
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-7" value="+ Tipo : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
-          <mxGeometry y="52" width="201.92" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-8" value="+ Ferramentas: []string&#xa;+ Valores: int &#xa;+ Disponivel: Datetime&#xa;+ ProximoHorario&#xa;+ Avaliacao : Objeto&#xa;+ NumeroDeEmprestimos: int&#xa;+ Nome:String&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
-          <mxGeometry y="78" width="201.92" height="132" as="geometry" />
+        <mxCell id="DQaVrgRvme_ONegq782_-8" value="+ Ferramentas: []Ferramentas&#xa;+ Valores: int &#xa;+ Disponivel: Datetime&#xa;&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-5">
+          <mxGeometry y="52" width="260" height="140" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.469;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="DQaVrgRvme_ONegq782_-10" target="DQaVrgRvme_ONegq782_-1">
           <mxGeometry relative="1" as="geometry">
@@ -42,7 +39,7 @@
         <mxCell id="DQaVrgRvme_ONegq782_-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQaVrgRvme_ONegq782_-10" target="DQaVrgRvme_ONegq782_-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface or Struct&amp;gt;&amp;gt;&lt;/i&gt;&lt;b&gt;Usuario&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Nome: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Localizacao: Int ou float&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Endereco : string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CEP : int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Interesses: []string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Tipo: Objeto&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getNome(): string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ validaCpfOrCNPJ(cpfOrCnpj string): bool&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+        <mxCell id="DQaVrgRvme_ONegq782_-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface or Struct&amp;gt;&amp;gt;&lt;/i&gt;&lt;b&gt;Usuario&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Nome: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Localizacao: Int ou float&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Endereco : string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CEP : int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Interesses: []string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Tipo: Objeto&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ NumeroEmprestimos: int &lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Avaliacao : Avaliacao &lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getNome(): string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ validaCpfOrCNPJ(cpfOrCnpj string): bool&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
           <mxGeometry x="170" y="30" width="350" height="210" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-13" value="Tipo&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
@@ -69,7 +66,7 @@
         <mxCell id="DQaVrgRvme_ONegq782_-24" value="Avaliacao" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="175" y="700" width="250" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="DQaVrgRvme_ONegq782_-28" value="+ UserId : int&#xa;+ Estrelas: int&#xa;+ Comentarios: []string&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-24">
+        <mxCell id="DQaVrgRvme_ONegq782_-28" value="+ UserId : int&#xa;+ Estrelas: int&#xa;+ Comentarios: []Comentario&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-24">
           <mxGeometry y="26" width="250" height="60" as="geometry" />
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-26" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="DQaVrgRvme_ONegq782_-24">
@@ -94,6 +91,9 @@
         </mxCell>
         <mxCell id="DQaVrgRvme_ONegq782_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="DQaVrgRvme_ONegq782_-28" target="DQaVrgRvme_ONegq782_-33">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQaVrgRvme_ONegq782_-36" value="&lt;div&gt;PAGAMENTOS&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="492" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
