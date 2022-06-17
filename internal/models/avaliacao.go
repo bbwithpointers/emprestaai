@@ -1,12 +1,12 @@
 package models
 
 type Avaliacao struct {
-	UserId      int
-	Estrelas    int
-	Comentarios []Comentario
+	UserId      int          `json:"userId"`
+	Estrelas    int          `json:"estrelas"`
+	Comentarios []Comentario `json:"comentarios"`
 }
 
 type Comentario struct {
-	Titulo   string
-	Conteudo string
+	Titulo   string `json:"titulo"`
+	Conteudo string `json:"descricao"`
 }
