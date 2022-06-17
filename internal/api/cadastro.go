@@ -3,6 +3,7 @@ package api
 import (
 	"net/http"
 
+	"github.com/brunogbarros/emprestaai.git/internal/models"
 	"github.com/labstack/echo/v4"
 )
 
@@ -14,9 +15,34 @@ func NovoCadastro() *SignIn {
 }
 
 func (s SignIn) Register(e *echo.Echo) {
-	e.GET("/cadastro", Cadastro)
+	e.POST("/cadastro", Cadastro)
 }
 
 func Cadastro(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, world\n")
+
+	u := new(models.Usuario)
+	if err := c.Bind(u); err != nil {
+		return err
+	}
+	var contratante models.Contratante
+	var user models.Usuario
+	if u.Tipo == 1 {
+		user = models.Usuario{
+			Nome:                u.Nome,
+			Localizacao:         u.Localizacao,
+			Endereco:            u.Endereco,
+			CEP:                 u.CEP,
+			Interesses:          u.Interesses,
+			Documento:           u.Documento,
+			Tipo:                u.Tipo,
+			NumeroDeEmprestimos: u.NumeroDeEmprestimos,
+			Avaliacao:           u.Avaliacao,
+		}
+		contratante = models.Contratante{
+			Usuario:      user,
+			DocumentoCPF: u.Documento,
+		}
+	}
+
+	return c.JSON(http.StatusOK, contratante)
 }
