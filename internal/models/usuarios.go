@@ -6,28 +6,29 @@ const (
 )
 
 type Usuario struct {
-	Nome                string
-	Localizacao         Localizacao
-	Endereco            string
-	CEP                 int
-	Interesses          []string
-	Tipo                int
-	NumeroDeEmprestimos int
-	Avaliacao           Avaliacao
+	Nome                string      `json:"nome"`
+	Localizacao         Localizacao `json:"localizacao"`
+	Endereco            string      `json:"endereco"`
+	CEP                 int         `json:"cep"`
+	Interesses          []string    `json:"interesses"`
+	Documento           string      `json:"documento"`
+	Tipo                int         `json:"tipo"`
+	NumeroDeEmprestimos int         `json:"numeroDeEmprestimos"`
+	Avaliacao           Avaliacao   `json:"avaliacao"`
 }
 
 type Contratante struct {
 	Usuario
-	CPF string
+	DocumentoCPF string `json:"cpf"`
 }
 
 type Trabalhador struct {
 	Usuario
-	CNPJ        string
-	Ferramentas []Ferramentas
+	DocumentoCNPJ string        `json:"cnpj"`
+	Ferramentas   []Ferramentas `json:"ferramentas"`
 	// datetime
-	Disponivel string
+	Disponivel bool `json:"disponivel"`
 	// datetime
-	ProximoHorario string
-	ValorHora      int
+	ProximoHorario string `json:"proximoHorario"`
+	ValorHora      int    `json:"valorHora"`
 }
