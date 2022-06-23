@@ -25,10 +25,10 @@ type Contratante struct {
 type Trabalhador struct {
 	Usuario
 	DocumentoCNPJ string        `json:"cnpj"`
-	Ferramentas   []Ferramentas `json:"ferramentas"`
+	Ferramentas   []Ferramentas `json:"ferramentas,omitempty"`
 	// datetime
 	Disponivel bool `json:"disponivel"`
 	// datetime
-	ProximoHorario string `json:"proximoHorario"`
-	ValorHora      int    `json:"valorHora"`
+	ProximoHorario string `json:"proximoHorario,omitempty"`
+	ValorHora      int    `json:"valorHora,omitempty"`
 }
