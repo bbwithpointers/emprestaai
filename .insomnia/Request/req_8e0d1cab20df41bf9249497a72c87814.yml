@@ -1,0 +1,35 @@
+_id: req_8e0d1cab20df41bf9249497a72c87814
+type: Request
+parentId: wrk_322aca34452d4322bb4db6dca101cf83
+modified: 1656200333152
+created: 1656197058112
+url: localhost:8080/cadastro
+name: /cadastro
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+        "nome":"brino 4444",
+        "localizacao": {"lat": 13213, "long":132131},
+        "endereco":"aray joao pessoa",
+        "CEP":22790430,
+        "documento": "02036431003",
+        "interesses":["go","furadeira"],
+        "tipo": 2
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_b10090c0c57d4a78bb977ea7dc5bb01e
+authentication: {}
+metaSortKey: -1656197058112
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
