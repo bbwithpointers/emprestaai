@@ -1,11 +1,13 @@
 package api
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 
 	"github.com/brunogbarros/emprestaai.git/internal/models"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/gommon/log"
 )
 
 type SignIn struct {
@@ -17,7 +19,13 @@ func NovoCadastro() *SignIn {
 
 func (s SignIn) Register(e *echo.Echo) {
 	e.POST("/cadastro", Cadastro)
+	e.GET("/listaTrabalhadores", ListarTrabalhadores)
+	e.GET("/listaContratante", ListarTrabalhadores)
 }
+
+// temporario
+var listaDeContratante []models.Contratante
+var listaDeTrabalhador []models.Trabalhador
 
 func Cadastro(c echo.Context) error {
 
@@ -42,7 +50,7 @@ func Cadastro(c echo.Context) error {
 			Usuario:      user,
 			DocumentoCPF: u.Documento,
 		}
-		// logica de salvar no banco
+		listaDeContratante = append(listaDeContratante, contratante)
 	}
 	trabalhador := models.Trabalhador{
 		Usuario:       user,
@@ -50,7 +58,28 @@ func Cadastro(c echo.Context) error {
 		// default
 		Disponivel: true,
 	}
+	listaDeTrabalhador = append(listaDeTrabalhador, trabalhador)
 	fmt.Println(trabalhador)
 
 	return c.JSON(http.StatusOK, contratante)
+}
+
+func ListarTrabalhadores(c echo.Context) error {
+	// vem do mongodb o listaAll e o ListaById
+	if len(listaDeTrabalhador) == 0 {
+		return c.JSON(http.StatusOK, "Lista vazia")
+	}
+
+	return c.JSON(http.StatusOK, listaDeTrabalhador)
+}
+
+func ListarContratantes(c echo.Context) error {
+	// vem do mongodb o listaAll e o ListaById
+	listaInJson, err := json.Marshal(listaDeContratante)
+	if err != nil {
+		log.Infof("could not parse listaDeContratante json: err %v", err)
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, listaInJson)
 }

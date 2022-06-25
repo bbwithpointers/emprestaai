@@ -6,6 +6,7 @@ const (
 )
 
 type Usuario struct {
+	ID                  string      `json:"id,omitempty"`
 	Nome                string      `json:"nome"`
 	Localizacao         Localizacao `json:"localizacao"`
 	Endereco            string      `json:"endereco"`
