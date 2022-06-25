@@ -6,6 +6,7 @@ const (
 )
 
 type Usuario struct {
+	ID                  string      `json:"id,omitempty"`
 	Nome                string      `json:"nome"`
 	Localizacao         Localizacao `json:"localizacao"`
 	Endereco            string      `json:"endereco"`
@@ -13,8 +14,8 @@ type Usuario struct {
 	Interesses          []string    `json:"interesses"`
 	Documento           string      `json:"documento"`
 	Tipo                int         `json:"tipo"`
-	NumeroDeEmprestimos int         `json:"numeroDeEmprestimos"`
-	Avaliacao           Avaliacao   `json:"avaliacao"`
+	NumeroDeEmprestimos int         `json:"numeroDeEmprestimos,omitempty"`
+	Avaliacao           Avaliacao   `json:"avaliacao,omitempty"`
 }
 
 type Contratante struct {
