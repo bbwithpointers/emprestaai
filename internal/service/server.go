@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/brunogbarros/emprestaai.git/internal/api"
+	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
@@ -15,6 +16,7 @@ func NewApp() *echo.Echo {
 	app.Use(middleware.Recover())
 	app.Use(middleware.RemoveTrailingSlash())
 	app.Use(middleware.CORS())
+	repository.SetupDb()
 
 	api.NovoCadastro().Register(app)
 	return app
