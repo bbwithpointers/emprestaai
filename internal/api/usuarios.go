@@ -1,12 +1,10 @@
 package api
 
 import (
-	"context"
 	"fmt"
 	"net/http"
 
 	"github.com/brunogbarros/emprestaai.git/internal/models"
-	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/labstack/echo/v4"
 )
 
@@ -28,8 +26,8 @@ func (s SignIn) Register(e *echo.Echo) {
 var listaDeTrabalhador []models.Trabalhador
 
 func Cadastro(c echo.Context) error {
-	collections := repository.NewDBClient().Database("emprestaai").Collection("usuarios")
-	ctx := context.Background()
+	// collections := repository.NewDBClient().Database("emprestaai").Collection("usuarios")
+	// ctx := context.Background()
 	u := new(models.Usuario)
 	if err := c.Bind(u); err != nil {
 		return err
@@ -80,6 +78,5 @@ func ListarTrabalhadores(c echo.Context) error {
 }
 
 func ListarContratantes(c echo.Context) error {
-
 	return c.JSON(http.StatusOK, "contratantes")
 }
