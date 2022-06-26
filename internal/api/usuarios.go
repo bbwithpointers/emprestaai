@@ -22,11 +22,12 @@ func (s SignIn) Register(e *echo.Echo) {
 }
 
 // temporario
-var listaDeContratante []models.Contratante
+// var listaDeContratante []models.Contratante
 var listaDeTrabalhador []models.Trabalhador
 
 func Cadastro(c echo.Context) error {
-
+	// collections := repository.NewDBClient().Database("emprestaai").Collection("usuarios")
+	// ctx := context.Background()
 	u := new(models.Usuario)
 	if err := c.Bind(u); err != nil {
 		return err
@@ -48,10 +49,12 @@ func Cadastro(c echo.Context) error {
 			Usuario:      user,
 			DocumentoCPF: u.Documento,
 		}
-		listaDeContratante = append(listaDeContratante, contratante)
+		// persist
+
 	} else {
 		trabalhador := models.Trabalhador{
 			Usuario:       user,
+			ID:            "223-223",
 			DocumentoCNPJ: u.Documento,
 			// default
 			Disponivel: true,
@@ -66,6 +69,7 @@ func Cadastro(c echo.Context) error {
 
 func ListarTrabalhadores(c echo.Context) error {
 	// vem do mongodb o listaAll e o ListaById
+	// list vai no banco e devolve a lista
 	if len(listaDeTrabalhador) == 0 {
 		return c.JSON(http.StatusOK, "Lista vazia")
 	}
@@ -74,7 +78,5 @@ func ListarTrabalhadores(c echo.Context) error {
 }
 
 func ListarContratantes(c echo.Context) error {
-	// vem do mongodb o listaAll e o ListaById
-
-	return c.JSON(http.StatusOK, listaDeContratante)
+	return c.JSON(http.StatusOK, "contratantes")
 }
