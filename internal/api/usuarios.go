@@ -8,8 +8,6 @@ import (
 	"github.com/brunogbarros/emprestaai.git/internal/models"
 	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/gommon/log"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 type SignIn struct {
@@ -53,14 +51,8 @@ func Cadastro(c echo.Context) error {
 			Usuario:      user,
 			DocumentoCPF: u.Documento,
 		}
-		contra := []interface{}{
-			bson.D{{"nome", contratante.Usuario.Nome}},
-		}
-		res, insertErr := collections.InsertMany(ctx, contra)
-		if insertErr != nil {
-			log.Errorf("insert error: %v", insertErr)
-		}
-		fmt.Println("response from insert: ", res)
+		// persist
+
 	} else {
 		trabalhador := models.Trabalhador{
 			Usuario:       user,
@@ -88,26 +80,6 @@ func ListarTrabalhadores(c echo.Context) error {
 }
 
 func ListarContratantes(c echo.Context) error {
-	collection := repository.NewDBClient().Database("emprestaai").Collection("usuarios")
-	ctx := context.Background()
-	// vem do mongodb o listaAll e o ListaById
-	// list vai no banco e devolve a lista
-	cur, currErr := collection.Find(ctx, bson.D{})
 
-	if currErr != nil {
-		panic(currErr)
-	}
-	defer cur.Close(ctx)
-
-	var contratantes []models.Contratante
-	if err := cur.All(ctx, &contratantes); err != nil {
-		panic(err)
-	}
-	fmt.Println(contratantes)
-	return c.JSON(http.StatusOK, contratantes)
+	return c.JSON(http.StatusOK, "contratantes")
 }
-
-// func Avaliar() {
-// 	// ao clicar em avaliar, o ID virá do usuário clicado
-// 	idClicado :=
-// }
