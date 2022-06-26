@@ -46,12 +46,14 @@ func Cadastro(c echo.Context) error {
 	if u.Tipo == 1 && len(u.Documento) <= 11 {
 		contratante = models.Contratante{
 			Usuario:      user,
+			ID:           "123-123",
 			DocumentoCPF: u.Documento,
 		}
 		listaDeContratante = append(listaDeContratante, contratante)
 	} else {
 		trabalhador := models.Trabalhador{
 			Usuario:       user,
+			ID:            "223-223",
 			DocumentoCNPJ: u.Documento,
 			// default
 			Disponivel: true,
@@ -66,6 +68,7 @@ func Cadastro(c echo.Context) error {
 
 func ListarTrabalhadores(c echo.Context) error {
 	// vem do mongodb o listaAll e o ListaById
+	// list vai no banco e devolve a lista
 	if len(listaDeTrabalhador) == 0 {
 		return c.JSON(http.StatusOK, "Lista vazia")
 	}
@@ -75,6 +78,11 @@ func ListarTrabalhadores(c echo.Context) error {
 
 func ListarContratantes(c echo.Context) error {
 	// vem do mongodb o listaAll e o ListaById
-
+	// list vai no banco e devolve a lista
 	return c.JSON(http.StatusOK, listaDeContratante)
 }
+
+// func Avaliar() {
+// 	// ao clicar em avaliar, o ID virá do usuário clicado
+// 	idClicado :=
+// }

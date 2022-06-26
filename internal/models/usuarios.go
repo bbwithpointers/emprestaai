@@ -6,7 +6,6 @@ const (
 )
 
 type Usuario struct {
-	ID                  string      `json:"id,omitempty"`
 	Nome                string      `json:"nome"`
 	Localizacao         Localizacao `json:"localizacao"`
 	Endereco            string      `json:"endereco"`
@@ -20,11 +19,13 @@ type Usuario struct {
 
 type Contratante struct {
 	Usuario
+	ID           string `json:"id,omitempty"`
 	DocumentoCPF string `json:"cpf"`
 }
 
 type Trabalhador struct {
 	Usuario
+	ID            string        `json:"id,omitempty"`
 	DocumentoCNPJ string        `json:"cnpj"`
 	Ferramentas   []Ferramentas `json:"ferramentas,omitempty"`
 	// datetime
