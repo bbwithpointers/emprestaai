@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/brunogbarros/emprestaai.git/internal/models"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 )
 
@@ -22,12 +23,10 @@ func (s SignIn) Register(e *echo.Echo) {
 }
 
 // temporario
-// var listaDeContratante []models.Contratante
 var listaDeTrabalhador []models.Trabalhador
 
 func Cadastro(c echo.Context) error {
-	// collections := repository.NewDBClient().Database("emprestaai").Collection("usuarios")
-	// ctx := context.Background()
+
 	u := new(models.Usuario)
 	if err := c.Bind(u); err != nil {
 		return err
