@@ -7,6 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// TODO: persistir
 func ConnectDB() {
 	db, err := sql.Open("mysql", "user:password@/dbname")
 	if err != nil {

@@ -23,6 +23,7 @@ type Contratante struct {
 	DocumentoCPF string `json:"cpf"`
 }
 
+// mover para um struct proprio
 type Loja struct {
 	ID            string        `json:"id,omitempty"`
 	DocumentoCNPJ string        `json:"cnpj"`
