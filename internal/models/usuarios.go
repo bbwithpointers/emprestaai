@@ -23,14 +23,15 @@ type Contratante struct {
 	DocumentoCPF string `json:"cpf"`
 }
 
-type Trabalhador struct {
-	Usuario
+// mover para um struct proprio
+type Loja struct {
 	ID            string        `json:"id,omitempty"`
 	DocumentoCNPJ string        `json:"cnpj"`
 	Ferramentas   []Ferramentas `json:"ferramentas,omitempty"`
 	// datetime
 	Disponivel bool `json:"disponivel"`
 	// datetime
-	ProximoHorario string `json:"proximoHorario,omitempty"`
-	ValorHora      int    `json:"valorHora,omitempty"`
+	ProximoHorario string    `json:"proximoHorario,omitempty"`
+	ValorHora      int       `json:"valorHora,omitempty"`
+	Avaliacao      Avaliacao `json:"avaliacao,omitempty"`
 }

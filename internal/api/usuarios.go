@@ -23,7 +23,7 @@ func (s SignIn) Register(e *echo.Echo) {
 }
 
 // temporario
-var listaDeTrabalhador []models.Trabalhador
+var listaDeLoja []models.Loja
 
 func Cadastro(c echo.Context) error {
 
@@ -51,14 +51,13 @@ func Cadastro(c echo.Context) error {
 		// persist
 
 	} else {
-		trabalhador := models.Trabalhador{
-			Usuario:       user,
+		trabalhador := models.Loja{
 			ID:            "223-223",
 			DocumentoCNPJ: u.Documento,
 			// default
 			Disponivel: true,
 		}
-		listaDeTrabalhador = append(listaDeTrabalhador, trabalhador)
+		listaDeLoja = append(listaDeLoja, trabalhador)
 		fmt.Println(trabalhador)
 		return c.JSON(http.StatusOK, trabalhador)
 	}
@@ -69,11 +68,11 @@ func Cadastro(c echo.Context) error {
 func ListarTrabalhadores(c echo.Context) error {
 	// vem do mongodb o listaAll e o ListaById
 	// list vai no banco e devolve a lista
-	if len(listaDeTrabalhador) == 0 {
+	if len(listaDeLoja) == 0 {
 		return c.JSON(http.StatusOK, "Lista vazia")
 	}
 
-	return c.JSON(http.StatusOK, listaDeTrabalhador)
+	return c.JSON(http.StatusOK, listaDeLoja)
 }
 
 func ListarContratantes(c echo.Context) error {

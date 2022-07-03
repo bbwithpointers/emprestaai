@@ -5,5 +5,4 @@ type Ferramentas struct {
 	Tipo       string
 	Acessorios string
 	Modelo     string
-	TempoDeUso string
 }
