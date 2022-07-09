@@ -1,8 +1,8 @@
 package models
 
-type Trabalhador int
+type UsuarioTipo int
 
 const (
-	CONTRATANTE Trabalhador = iota
-	TRABALHADOR
+	USUARIO UsuarioTipo = iota
+	//LOJA
 )

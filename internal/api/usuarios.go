@@ -9,15 +9,15 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type SignIn struct {
+type Cadastro struct {
 }
 
-func NovoCadastro() *SignIn {
-	return &SignIn{}
+func NewCadastro() *Cadastro {
+	return &Cadastro{}
 }
 
-func (s SignIn) Register(e *echo.Echo) {
-	e.POST("/cadastro", Cadastro)
+func (s Cadastro) Register(e *echo.Echo) {
+	e.POST("/cadastro", CriarCadastro)
 	e.GET("/listaTrabalhadores", ListarTrabalhadores)
 	e.GET("/listaContratante", ListarContratantes)
 }
@@ -25,13 +25,13 @@ func (s SignIn) Register(e *echo.Echo) {
 // temporario
 var listaDeLoja []models.Loja
 
-func Cadastro(c echo.Context) error {
+func CriarCadastro(c echo.Context) error {
 
 	u := new(models.Usuario)
 	if err := c.Bind(u); err != nil {
 		return err
 	}
-	user := models.Usuario{
+	user := models.UserDefaultData{
 		Nome:                u.Nome,
 		Localizacao:         u.Localizacao,
 		Endereco:            u.Endereco,
@@ -42,24 +42,24 @@ func Cadastro(c echo.Context) error {
 		NumeroDeEmprestimos: 0,
 		Avaliacao:           models.Avaliacao{},
 	}
-	var contratante models.Contratante
-	if u.Tipo == 1 && len(u.Documento) <= 11 {
-		contratante = models.Contratante{
-			Usuario:      user,
-			DocumentoCPF: u.Documento,
+	var contratante models.Usuario
+	if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
+		contratante = models.Usuario{
+			UserDefaultData: user,
+			DocumentoCPF:    u.Documento,
 		}
 		// persist
 
 	} else {
-		trabalhador := models.Loja{
+		loja := models.Loja{
 			ID:            "223-223",
 			DocumentoCNPJ: u.Documento,
 			// default
 			Disponivel: true,
 		}
-		listaDeLoja = append(listaDeLoja, trabalhador)
-		fmt.Println(trabalhador)
-		return c.JSON(http.StatusOK, trabalhador)
+		listaDeLoja = append(listaDeLoja, loja)
+		fmt.Println(loja)
+		return c.JSON(http.StatusOK, loja)
 	}
 
 	return c.JSON(http.StatusOK, contratante)
