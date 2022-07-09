@@ -16,17 +16,10 @@ func NewApp() *echo.Echo {
 	app.Use(middleware.RemoveTrailingSlash())
 	app.Use(middleware.CORS())
 
-	api.NovoCadastro().Register(app)
+	api.NewCadastro().Register(app)
 	return app
 
 }
-func NewHealthApp() *echo.Echo {
-	app := echo.New()
-
-	api.NewHealthcheck().Register(app)
-	return app
-}
-
 func Start(e *echo.Echo, host string) {
 	e.HideBanner = true
 	err := e.Start(host)
