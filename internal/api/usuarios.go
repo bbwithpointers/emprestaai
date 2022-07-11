@@ -2,6 +2,8 @@ package api
 
 import (
 	"fmt"
+	"github.com/brunogbarros/emprestaai.git/public"
+	"html/template"
 	"net/http"
 
 	"github.com/brunogbarros/emprestaai.git/internal/models"
@@ -17,9 +19,17 @@ func NewCadastro() *Cadastro {
 }
 
 func (s Cadastro) Register(e *echo.Echo) {
-	e.POST("/cadastro", CriarCadastro)
-	e.GET("/listaTrabalhadores", ListarTrabalhadores)
-	e.GET("/listaContratante", ListarContratantes)
+	t := &public.Template{
+		Templates: template.Must(template.ParseGlob("public/views/*.html")),
+	}
+	e.Renderer = t
+	//e.POST("/cadastro", CriarCadastro)
+	//e.GET("/listaTrabalhadores", ListarTrabalhadores)
+	//e.GET("/listaContratante", ListarContratantes)
+	e.GET("/hello", Hello)
+}
+func Hello(c echo.Context) error {
+	return c.Render(http.StatusOK, "hello", "world")
 }
 
 // temporario

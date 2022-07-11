@@ -17,6 +17,7 @@ func NewApp() *echo.Echo {
 	app.Use(middleware.CORS())
 
 	api.NewCadastro().Register(app)
+
 	return app
 
 }
