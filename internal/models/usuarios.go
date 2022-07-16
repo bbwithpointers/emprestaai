@@ -9,7 +9,7 @@ type UserDefaultData struct {
 	Documento           string      `json:"documento"`
 	Tipo                UsuarioTipo `json:"tipo"`
 	NumeroDeEmprestimos int         `json:"numeroDeEmprestimos,omitempty"`
-	Avaliacao           Avaliacao   `json:"avaliacao,omitempty"`
+	Avaliacao           int         `json:"avaliacao,omitempty"`
 }
 
 type Usuario struct {

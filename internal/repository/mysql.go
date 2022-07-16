@@ -31,11 +31,11 @@ func dbConn() (db *sql.DB) {
 
 func Insert(usuario models.Usuario) {
 	db := dbConn()
-	stmt, err := db.Prepare("INSERT INTO tb_usuarios(null, nome,localizacao,cep,interesses,documento,tipo,numeroDeEmprestimos,avaliacaoId, endereco) VALUES (?,?,?,?,?,?,?,?,?,?,?)")
+	stmt, err := db.Prepare("INSERT INTO tb_usuarios(nome,localizacao,cep,interesses,documento,tipo,numeroDeEmprestimos,avaliacaoId, endereco) VALUES (?,?,?,?,?,?,?,?,?)")
 	if err != nil {
 		panic(err.Error())
 	}
-	result, _ := stmt.Exec(usuario.Nome, usuario.Localizacao, usuario.CEP, usuario.Interesses, usuario.Documento, usuario.Tipo, usuario.NumeroDeEmprestimos, usuario.Avaliacao.UserId, usuario.Endereco)
+	result, _ := stmt.Exec(usuario.Nome, usuario.Localizacao, usuario.CEP, usuario.Interesses, usuario.Documento, usuario.Tipo, usuario.NumeroDeEmprestimos, usuario.Avaliacao, usuario.Endereco)
 	lastIdInserted, _ := result.LastInsertId()
 	fmt.Printf("INSERTED %s", usuario.Nome, " id: %d", int(lastIdInserted))
 	defer db.Close()

@@ -24,7 +24,8 @@ func (s Cadastro) Register(e *echo.Echo) {
 		Templates: template.Must(template.ParseGlob("public/views/*.html")),
 	}
 	e.Renderer = t
-	e.POST("/cadastro", CriarCadastro)
+	// TODO: teste only
+	e.GET("/cadastro", CriarCadastro)
 	//e.GET("/listaTrabalhadores", ListarTrabalhadores)
 	//e.GET("/listaContratante", ListarContratantes)
 	e.GET("/hello", Hello)
@@ -39,9 +40,17 @@ var listaDeLoja []models.Loja
 func CriarCadastro(c echo.Context) error {
 
 	u := new(models.Usuario)
-	if err := c.Bind(u); err != nil {
-		return err
-	}
+	u.Nome = "bruno"
+	u.Documento = "04038792004"
+	u.Localizacao = models.Localizacao{Latitude: 123, Longitude: 3123}
+	u.Endereco = "rua tal casa"
+	u.CEP = 98787665
+	u.Interesses = []string{"go", "dormir"}
+	u.Tipo = models.USUARIO
+	u.Avaliacao = 123
+	//if err := c.Bind(u); err != nil {
+	//	return err
+	//}
 	user := models.UserDefaultData{
 		Nome:                u.Nome,
 		Localizacao:         u.Localizacao,
@@ -51,7 +60,7 @@ func CriarCadastro(c echo.Context) error {
 		Documento:           u.Documento,
 		Tipo:                u.Tipo,
 		NumeroDeEmprestimos: 0,
-		Avaliacao:           models.Avaliacao{},
+		Avaliacao:           u.Avaliacao,
 	}
 	var contratante models.Usuario
 	if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
