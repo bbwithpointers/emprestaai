@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/brunogbarros/emprestaai.git/public"
 	"html/template"
 	"net/http"
@@ -23,7 +24,7 @@ func (s Cadastro) Register(e *echo.Echo) {
 		Templates: template.Must(template.ParseGlob("public/views/*.html")),
 	}
 	e.Renderer = t
-	//e.POST("/cadastro", CriarCadastro)
+	e.POST("/cadastro", CriarCadastro)
 	//e.GET("/listaTrabalhadores", ListarTrabalhadores)
 	//e.GET("/listaContratante", ListarContratantes)
 	e.GET("/hello", Hello)
@@ -58,7 +59,7 @@ func CriarCadastro(c echo.Context) error {
 			UserDefaultData: user,
 			DocumentoCPF:    u.Documento,
 		}
-		// persist
+		repository.Insert(contratante)
 
 	} else {
 		loja := models.Loja{
