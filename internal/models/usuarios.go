@@ -14,6 +14,6 @@ type UserDefaultData struct {
 
 type Usuario struct {
 	UserDefaultData
-	ID           string `json:"id,omitempty"`
+	ID           int    `json:"id,omitempty"`
 	DocumentoCPF string `json:"cpf"`
 }

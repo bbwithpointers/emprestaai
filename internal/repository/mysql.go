@@ -9,7 +9,7 @@ import (
 
 // TODO: persistir
 func ConnectDB() {
-	db, err := sql.Open("mysql", "user:password@/dbname")
+	db, err := sql.Open("mysql", "root:@/meemprestaai")
 	if err != nil {
 		panic(err)
 	}
