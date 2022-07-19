@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/brunogbarros/emprestaai.git/public"
 	"html/template"
@@ -28,7 +27,7 @@ func (s Cadastro) Register(e *echo.Echo) {
 	e.GET("/cadastro", CriarCadastro)
 	//e.GET("/listaTrabalhadores", ListarTrabalhadores)
 	//e.GET("/listaContratante", ListarContratantes)
-	e.GET("/hello", Hello)
+	//e.GET("/hello", Hello)
 }
 func Hello(c echo.Context) error {
 	return c.Render(http.StatusOK, "hello", "world")
@@ -42,10 +41,10 @@ func CriarCadastro(c echo.Context) error {
 	u := new(models.Usuario)
 	u.Nome = "bruno"
 	u.Documento = "04038792004"
-	u.Localizacao = models.Localizacao{Latitude: 123, Longitude: 3123}
+	u.Localizacao = "123123,1312312"
 	u.Endereco = "rua tal casa"
 	u.CEP = 98787665
-	u.Interesses = []string{"go", "dormir"}
+	u.Interesses = "go, dormir"
 	u.Tipo = models.USUARIO
 	u.Avaliacao = 123
 	//if err := c.Bind(u); err != nil {
@@ -62,27 +61,28 @@ func CriarCadastro(c echo.Context) error {
 		NumeroDeEmprestimos: 0,
 		Avaliacao:           u.Avaliacao,
 	}
-	var contratante models.Usuario
-	if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
-		contratante = models.Usuario{
-			UserDefaultData: user,
-			DocumentoCPF:    u.Documento,
-		}
-		repository.Insert(contratante)
+	//var contratante models.Usuario
+	//if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
+	//	contratante = models.Usuario{
+	//		UserDefaultData: user,
+	//		DocumentoCPF:    u.Documento,
+	//	}
+	//	fmt.Println("CONTRATANTE: ", contratante)
+	repository.Insert(user)
 
-	} else {
-		loja := models.Loja{
-			ID:            "223-223",
-			DocumentoCNPJ: u.Documento,
-			// default
-			Disponivel: true,
-		}
-		listaDeLoja = append(listaDeLoja, loja)
-		fmt.Println(loja)
-		return c.JSON(http.StatusOK, loja)
-	}
+	//} else {
+	//	loja := models.Loja{
+	//		ID:            "223-223",
+	//		DocumentoCNPJ: u.Documento,
+	//		// default
+	//		Disponivel: true,
+	//	}
+	//	listaDeLoja = append(listaDeLoja, loja)
+	//	fmt.Println(loja)
+	//	return c.JSON(http.StatusOK, user)
+	//}
 
-	return c.JSON(http.StatusOK, contratante)
+	return c.JSON(http.StatusOK, user)
 }
 
 func ListarTrabalhadores(c echo.Context) error {
