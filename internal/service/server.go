@@ -2,13 +2,14 @@ package service
 
 import (
 	"github.com/brunogbarros/emprestaai.git/internal/api"
+	"github.com/brunogbarros/emprestaai.git/internal/config"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 )
 
 func NewApp() *echo.Echo {
-
+	config.Carregar()
 	app := echo.New()
 
 	app.Use(middleware.Logger())

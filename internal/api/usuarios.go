@@ -1,7 +1,6 @@
 package api
 
 import (
-	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/brunogbarros/emprestaai.git/public"
 	"html/template"
 	"net/http"
@@ -40,7 +39,7 @@ func CriarCadastro(c echo.Context) error {
 
 	u := new(models.Usuario)
 	u.Nome = "bruno"
-	u.Documento = "04038792004"
+	u.DocumentoCPF = "04038792004"
 	u.Localizacao = "123123,1312312"
 	u.Endereco = "rua tal casa"
 	u.CEP = 98787665
@@ -50,37 +49,19 @@ func CriarCadastro(c echo.Context) error {
 	//if err := c.Bind(u); err != nil {
 	//	return err
 	//}
-	user := models.UserDefaultData{
+	user := models.Usuario{
 		Nome:                u.Nome,
 		Localizacao:         u.Localizacao,
+		DocumentoCPF:        u.DocumentoCPF,
 		Endereco:            u.Endereco,
 		CEP:                 u.CEP,
 		Interesses:          u.Interesses,
-		Documento:           u.Documento,
 		Tipo:                u.Tipo,
 		NumeroDeEmprestimos: 0,
 		Avaliacao:           u.Avaliacao,
 	}
-	//var contratante models.Usuario
-	//if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
-	//	contratante = models.Usuario{
-	//		UserDefaultData: user,
-	//		DocumentoCPF:    u.Documento,
-	//	}
-	//	fmt.Println("CONTRATANTE: ", contratante)
-	repository.Insert(user)
 
-	//} else {
-	//	loja := models.Loja{
-	//		ID:            "223-223",
-	//		DocumentoCNPJ: u.Documento,
-	//		// default
-	//		Disponivel: true,
-	//	}
-	//	listaDeLoja = append(listaDeLoja, loja)
-	//	fmt.Println(loja)
-	//	return c.JSON(http.StatusOK, user)
-	//}
+	//repository.NovoRepositorioDeUsuario()
 
 	return c.JSON(http.StatusOK, user)
 }
