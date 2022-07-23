@@ -40,7 +40,7 @@ func CriarCadastro(c echo.Context) error {
 
 	u := new(models.Usuario)
 	u.Nome = "bruno"
-	u.Documento = "04038792004"
+	u.DocumentoCPF = "04038792004"
 	u.Localizacao = "123123,1312312"
 	u.Endereco = "rua tal casa"
 	u.CEP = 98787665
@@ -50,13 +50,13 @@ func CriarCadastro(c echo.Context) error {
 	//if err := c.Bind(u); err != nil {
 	//	return err
 	//}
-	user := models.UserDefaultData{
+	user := models.Usuario{
 		Nome:                u.Nome,
 		Localizacao:         u.Localizacao,
+		DocumentoCPF:        u.DocumentoCPF,
 		Endereco:            u.Endereco,
 		CEP:                 u.CEP,
 		Interesses:          u.Interesses,
-		Documento:           u.Documento,
 		Tipo:                u.Tipo,
 		NumeroDeEmprestimos: 0,
 		Avaliacao:           u.Avaliacao,
@@ -64,11 +64,11 @@ func CriarCadastro(c echo.Context) error {
 	//var contratante models.Usuario
 	//if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
 	//	contratante = models.Usuario{
-	//		UserDefaultData: user,
+	//		Usuario: user,
 	//		DocumentoCPF:    u.Documento,
 	//	}
 	//	fmt.Println("CONTRATANTE: ", contratante)
-	repository.Insert(user)
+	repository.NovoRepositorioDeUsuario()
 
 	//} else {
 	//	loja := models.Loja{
