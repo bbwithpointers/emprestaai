@@ -1,7 +1,6 @@
 package api
 
 import (
-	"github.com/brunogbarros/emprestaai.git/internal/repository"
 	"github.com/brunogbarros/emprestaai.git/public"
 	"html/template"
 	"net/http"
@@ -61,26 +60,8 @@ func CriarCadastro(c echo.Context) error {
 		NumeroDeEmprestimos: 0,
 		Avaliacao:           u.Avaliacao,
 	}
-	//var contratante models.Usuario
-	//if u.Tipo == models.USUARIO && len(u.Documento) <= 11 {
-	//	contratante = models.Usuario{
-	//		Usuario: user,
-	//		DocumentoCPF:    u.Documento,
-	//	}
-	//	fmt.Println("CONTRATANTE: ", contratante)
-	repository.NovoRepositorioDeUsuario()
 
-	//} else {
-	//	loja := models.Loja{
-	//		ID:            "223-223",
-	//		DocumentoCNPJ: u.Documento,
-	//		// default
-	//		Disponivel: true,
-	//	}
-	//	listaDeLoja = append(listaDeLoja, loja)
-	//	fmt.Println(loja)
-	//	return c.JSON(http.StatusOK, user)
-	//}
+	//repository.NovoRepositorioDeUsuario()
 
 	return c.JSON(http.StatusOK, user)
 }
